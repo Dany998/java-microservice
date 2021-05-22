@@ -1,0 +1,14 @@
+spring:
+    application:
+        name: second-microservice
+        
+# Tomcat Server Configuration
+server:
+    port:
+        8002
+        
+# Eureka Configuration Properties
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka
