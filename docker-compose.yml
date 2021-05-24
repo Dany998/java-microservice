@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+    server-microservice:
+        image: eureka
+        restart: always
+        container_name: eureka
+        ports:
+            - '8761:8761'
+        networks: 
+            - 'docker-network'
+    api-gateway:
+        image: zuul
+        restart: always
+        container_name: zuul
+        ports:
+            - '7000:7000'
+        networks: 
+            - 'docker-network'
+    first-microservice:
+        image: first-microservice
+        restart: always
+        container_name: first-microservice
+        networks: 
+            - 'docker-network'
+    second-microservice:
+        image: second-microservice
+        restart: always
+        container_name: second-microservice
+        networks: 
+            - 'docker-network'
+networks: 
+    docker-network:
